@@ -1,0 +1,31 @@
+/* 
+selector {
+    property1: value1;
+    property2: value2;
+} 
+*/
+
+body {
+    background-color: red;
+}
+
+h1 {
+    float: right;
+}
+
+.regular {
+    background-color: white;
+    color: black;
+}
+
+p {
+    color: green;
+}
+
+.blue-background {
+    background-color: blue;
+}
+
+.large-text {
+    font-size: 3em;
+}

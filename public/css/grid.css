@@ -1,0 +1,45 @@
+/* Apply border-box model so we don't have to calculate padding percentages */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+.container { 
+    margin: 0 auto;
+    height: 1000px;
+    width: 80%; 
+    max-width: 1200px;
+    background-color: papayawhip;
+}
+
+.row {
+    width:100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    margin: 0px;
+}
+
+.column.one-half {
+    width: 50%;
+}
+
+.column.one-third {
+    width: 33.33%;
+}
+
+.column.one-quarter {
+    width: 25%;
+}

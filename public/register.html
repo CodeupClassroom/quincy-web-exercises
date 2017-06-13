@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Register a new user</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+    <main class="container">
+        <h1 >Welcome to Veridian Dynamics</h1>
+        <p>Please register as a new user.</p>
+        <p>
+            <a href="/login.html">Login here if you are already a user.</a>
+        </p>
+
+        <form method="POST" action="https://requestb.in/1j1tq091">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required autofocus>
+            </div>
+            <div>
+                <label for="email">eMail</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <label for="password_confirmation">Password confirmation</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" required>
+            </div>
+            <div>
+                <input name="newsletter_signup" type="checkbox" checked>Sign Up For The Email Newsletter
+
+                <input name="toppings[]" value="canadian_bacon" type="checkbox" checked>Canadian Bacon
+                <input name="toppings[]" value="green_olives" type="checkbox" checked>green olives
+
+            </div>
+            <button id="button" type="submit">Register</button>
+
+        </form>
+    </main>
+</body>
+</html>

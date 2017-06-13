@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Positioning</title>
+    <style type="text/css">
+        .box {
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            margin: 25px;
+            border: 1px solid black;
+            float: left;
+            position: relative;
+
+        }
+        .box:nth-child(3n + 4) {
+            clear: left;
+        }
+        img {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+        }        
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1><a href="#">Visible Spectrum Wavelengths</a></h1>
+
+        <section class="container">
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+            <div class="box"><img src="/img/codeup-arrow.png"></div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Register a new user</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+    <main>
+        <h1 class="large-text blue-background">Login to Veridian Dynamics</h1>
+        
+        <p class="large-text regular blue-background">User login for registered users</p>
+        
+        <p>
+            <a href="/register.html">Login here if you need to create an account.</a>
+        </p>
+
+        <form method="POST" action="https://requestb.in/1j1tq091">
+            <div>
+                <label for="email">eMail</label>
+                <input type="email" name="email" id="email" required autofocus>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <input name="stay_logged_in" value="true" type="checkbox">Remember me
+            </div>
+
+            <button type="submit">Log in</button>
+        </form>
+    </main>
+</body>
+</html>
