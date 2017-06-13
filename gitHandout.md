@@ -23,5 +23,24 @@
 - `git clone <repoAddress> newFolder` clones the repo into ./newFolder
 - `git push origin master` pushes all un-pushed commits to your rote.
 
-### Best Practices
-*If your code ain't in GitHub then it doesn't exist.*
+# Best Practices  
+  *If your code ain't in GitHub then it doesn't exist.*
+  - commit and push before lunch and before end of day.
+
+# context
+stuff we do once per project
+  make a new repo in github
+  git init
+
+stuff we do once per branch
+  git push -u origin master
+  
+stuff we do all the time
+  write code and save the file (includes removing files)
+  git add public/resume.html 
+  git add public/css/resume.css
+  git commit (commit related files)
+    write a darn good commit message
+    for great insight, http://confreaks.tv/presenters/josh-freeman
+  git push origin master
+
