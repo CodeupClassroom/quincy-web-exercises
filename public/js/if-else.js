@@ -37,5 +37,5 @@ if(color === "red") {
 console.log("The random color generated is " + color);
 console.log("My favorite color is " + favorite);
 
-console.log(color == favorite ? "The random color mathces!" : "Random and favorite colors are different.");
+console.log(color == favorite ? "The random color matches!" : "Random and favorite colors are different.");
 
