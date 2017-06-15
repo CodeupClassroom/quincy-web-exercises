@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loops Lecture</title>
+</head>
+<body>
+    <h1>Loops Lecture</h1>
+
+<script>
+
+    "use strict";
+
+    // ================================ WHILE LOOP
+
+
+    /*
+        While loop syntax:
+
+            while (conditionIsTrue) {
+                do something...
+            }
+
+        Used to repeat a block of code until a condition changes to break the loop
+        Likely used when the number of iterations is unknown
+
+        Diagram ***Curriculum***
+
+    */
+
+    // basic example
+        // var x = 1;
+        // while (x < 10) {
+        //     console.log(x);
+        //     ++x;
+        // }
+
+        // console.log(x + " after while loop runs.");
+
+
+    // possible use cases
+        // while(gameRunning) {
+        //     drawCanvas();
+        // }
+
+        // while(timerOn) {
+        //     // countUp;
+        // }
+
+
+    // condition never executes
+
+        // var x = 10;
+        // while (x < 5) {
+        //     console.log(x);
+        //     --x;
+        // }
+
+
+    // infinitely executes
+
+        // var x = 5;
+        // while (x !==4) {
+        //     console.log(x);
+        //     x++;
+        // }
+
+
+
+    // ================================ DO-WHILE LOOP
+
+
+    /*
+        While loop syntax:
+
+            do {
+                do something no matter what...
+            } while(conditionIsTrue);
+
+        Used to execute a block and code at least once and repeat it until the condition is no longer true
+
+        Diagram ***Curriculum***
+
+    */
+
+
+    // basic example
+
+    // var x = 10;
+    // do {
+    //     alert("This will run.");
+    // } while(x !== 10);
+
+
+
+
+    // use case
+    //     var password = "";
+    //     do {
+    //         password = prompt("Please enter a valid password");
+    //     } while(passCheck(password));
+
+    // // The do-while executes at least once
+
+    //     do {
+    //         alert("Welcome to our site!");
+    //         login = confirm("Click ok to login");
+    //     } while(login);
+
+
+
+    // ================================ FOR LOOP
+
+
+    /*
+        For loop diagram ***Curriculum***
+
+        For loop syntax:
+
+            for (initialization; test; iteration) {
+                do something a set number of times
+            }
+        
+        Used to perform an action based on a number iterations
+
+    */
+
+
+    // with incrementer
+
+        // for (var i = 0; i <= 10; ++i) {
+        //     console.log(i);    
+        // }
+
+
+
+
+
+    // with decrementer
+
+        // for (var i = 10; i >= 0; i -= 5) {
+        //     console.log(i);    
+        // }
+
+
+
+    // nested for loops
+
+        // for (var i = 0; i <= 10; ++i) {
+        //     console.log("Badgers, badgers, badgers");
+        //     for (var j = 0; j <= 1; ++j) {
+        //         console.log("Mushroom");
+        //     }
+        // }
+
+
+
+    // multiple iterators (less common)
+
+        // for (var i = 0, j = 9; i < 10; ++i, --j) {
+        //     console.log("Value of i: " + i + " and value of j: " + j);
+        // }
+
+
+
+
+    // ================================ BREAK / CONTINUE
+
+
+    // break - keyword to end the execution of a loop
+
+        var y = 0;
+
+        while (true) {
+            if (y === 10) {
+                console.log("End of loop!");
+                break;
+            }
+            ++y;
+            console.log(y);
+        }
+
+
+    // web example
+
+
+
+
+
+    // game example
+
+
+
+    // continue
+
+        // var y = 0;
+
+        // while (true) {
+        //     y++;
+        //     if (y === 100) {
+        //         console.log("End of loop!");
+        //         break;
+        //     }
+
+        //     if (y % 2 === 0) {
+        //         continue;
+        //     }
+        //     console.log(y);
+        // }
+
+
+
+    // web example
+
+    /*
+
+        Display a stylized list of weather info by year in which a specific geographic region experienced drought conditions.
+            Skip any years that do not meet the criteria.
+            If the years have already been displayed in the list, continue to the next year.
+
+     */
+
+</script>
+
+</body>
+</html>
