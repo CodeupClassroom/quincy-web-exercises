@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions Lecture</title>
+</head>
+<body>
+    <h1>Functions Lecture</h1>
+
+<script>
+    (function(){
+
+    "use strict";
+
+    // ================================================== FUNCTIONS
+
+    // using a function
+
+        function bark(someSound) {
+            return "The dog says: " + someSound;
+        }
+
+        // bark("Bow wow");
+
+        console.log(bark("Bow"));
+
+        // adding parentheses and passing in an argument calls the function
+
+        // var dogSound = bark("WOOF!");
+
+        // console.log(dogSound);
+
+
+        // without the parenthses: the function definition
+
+        // console.log(bark);
+
+        // var dogSoundFunction = bark;
+
+        // console.log(dogSoundFunction("bow wow"));
+
+
+    // creating a function
+
+        // function declaration
+
+            /*
+
+            FUNCTION DECLARATION SYNTAX
+
+            function doSomething() {
+                // doing something...
+            }
+
+            */
+
+
+        // function expression
+
+            /*
+
+             FUNCTION EXPRESSION SYNTAX using ANONYMOUS / LAMBDA FUNCTION
+
+             var someVariable = function() {
+                // do something
+             };
+
+             */
+                // function sayHello(greeting) {
+                //     return greeting;
+                // }
+
+                // var sayHello = function(greeting) {
+                //     return greeting;
+                // };
+
+            
+
+    // assigning a function value vs. assigning the function to a variable
+
+        // var sayHelloFunction = sayHello;
+        // var sayHelloReturnValue = sayHello("some value");
+
+
+    // defining parameters and passing in arguments
+
+        // defining parameters
+
+            // function addFive(number) {
+            //     return number + 5;
+            // }
+
+            // addFive(5); // an actual value passed into the function is called an argument
+
+
+        // storing a function return value vs. definition in a variable
+
+            // var x = addFive(5); // stores 10 in the x variable
+            // var y = addFive; // stores a reference to the addFive function in the y variable
+
+
+        // defining multiple parameters
+
+            function talkingDog(dogWords, punctuation) {
+                return "The dog barks loudly, \"" + dogWords + punctuation + "\"";
+            }
+
+            // talkingDog("I'm hungry", "!");
+
+            // console.log(talkingDog("I'm hungry", "!"));
+
+            // var dogOutput = talkingDog("I'm hungry", "!");
+
+            // console.log(dogOutput);
+
+
+        // functions with no return value
+
+            // function talkingDog(dogWords, punctuation) {
+            //     console.log("The dog barks loudly, \"" + dogWords + punctuation + "\"");
+            // }
+
+            // talkingDog("I'm hungry", "!");
+
+
+    // addtional uses of functions
+
+        // assigned to a variable
+
+            // function sayYes() {
+            //     "yes";
+            // }
+
+            // var yes = sayYes;
+
+        // return value passed to another function
+
+            // function returnFive() {
+            //     return 5;
+            // }
+
+            // function addTwo(number) {
+            //     return number += 2;
+            // }
+
+            // console.log(addTwo(returnFive()));
+
+
+        // definition passed to another function to call (callback function)
+
+            // setTimeout(function() {
+            //     console.log("Hello");
+            // }, 1000);
+
+            //     // OR...
+
+            // function sayHello() {
+            //     console.log("Hello");
+            // }
+
+            // setTimeout(sayHello, 1000);
+
+
+        // returned as a value from another function
+
+            // function happy() {
+            //     console.log("I'm happy!");
+            // }
+
+            // function notHappy() {
+            //     console.log("I'm NOT happy!");
+            // }
+
+            // function chooseMessage(mood) {
+            //     var result;
+
+            //     if (mood === "happy") {
+            //         result = happy;
+            //     } else {
+            //         result = notHappy;
+            //     }
+
+            //     return result;
+            // }
+
+            // var sayMessage = chooseMessage("sad");
+
+            // sayMessage();
+
+
+    // recursion
+
+        // function songThatNeverEnds() {
+        //     console.log("...this is the song that never ends " 
+        //         + "and it goes on an my friend. " 
+        //         + "Some people, started singing it not knowing what it was, "
+        //         + "and they'll continue singing it forever just because...");
+        //     songThatNeverEnds();
+        // }
+
+        // songThatNeverEnds();
+
+    // ================================================== SCOPE
+
+
+    // global vs. local scope
+
+       // var globalVar = "Look, I'm Global!"; // declare a global variable
+
+       //  function scopeExample() {
+       //      var localVar = "Look, I'm Local!"; // declare a local variable
+       //      alert(localVar); // localVar is accessible here
+       //      alert(globalVar); // globalVar is accessible here
+       //  }
+
+        // scopeExample();
+        // alert(localVar); // localVar is NOT accessible here and this will produce an error
+
+
+
+    // over-writing global/local variables
+
+        // var x = 300;
+        // var y = 100;
+
+        // function scopeExample() {
+        //     var x = 1;
+        //     var y = 2;
+        //     console.log('x: ' + x + ' y: ' + y); // x: 1 y: 2
+        //     return x + y;
+        // }
+
+        // scopeExample();
+
+        // console.log('x: ' + x + ' y: ' + y); // x: 300 y: 100
+        // var returnValue = scopeExample();
+        // console.log(returnValue); // 3
+
+
+    // IIFE
+
+        // Used to protect code from the global scope
+
+
+
+        
+    })();
+
+</script>
+
+</body>
+</html>
