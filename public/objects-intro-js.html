@@ -5,72 +5,7 @@
     <title>Objects Lesson</title>
 </head>
 <body>
-<script src="js/objects.js"></script>
-<script> 
-	
-	"use strict";
-
-	// todo:
-	// Create an array of objects that represent books.
-	// Each book should have a title and an author property.
-	// The author property should be an object with a firstName and lastName.
-	// Be creative and add at least 5 books to the array
-
-	var books = [
-		{
-			title: "Title 1",
-			author: {
-				firstName: "George" ,
-				lastName: "Orwell"
-			}	
-		}, 
-		{
-			title: "Title 2",
-			author: {
-				firstName: "First Name 2" ,
-				lastName: "Last Name 2"
-			}
-		}, 
-		{
-			title: "Title 3",
-			author: {
-				firstName: "First Name 3" ,
-				lastName: "Last Name 3"
-			}
-		}, 
-		{
-			title: "Title 4",
-			author: {
-				firstName: "First Name 4" ,
-				lastName: "Last Name 4"
-			}
-		}, 
-		{
-			title: "Title 5",
-			author: {
-				firstName: "First Name 5" ,
-				lastName: "Last Name 5"
-			}
-		}
-	];
-
-	// log out the books array
-
-	console.log(books);
-
-	// todo:
-	// Loop through the array of books using .forEach and print out the specified information about each one.
-	// start loop here
-	books.forEach(function(book, index, array){
-
-	    console.log("Book #" + (index + 1));
-	    console.log("Title: " + book.title);
-	    console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-	    console.log("---");
-	
-	});
-	// end loop here
-
-</script>
+<!-- <script src="js/objects.js"></script> -->
+<script src="/js/arrays_of_objects.js"></script>
 </body>
 </html>
