@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    "use strict";
+
+    var car = {
+        make: 'Hyundai',
+        model: 'Sonata',
+        speed: 0,
+        accelerate: function() {
+            this.speed++;
+        }
+    };
+
+    console.log("I drive a " + car.make + " " + car.model + ".");
+    console.log("It is currently going " + car.speed + " miles an hour");
+    car.accelerate();
+    car.accelerate();
+    car.accelerate();
+    console.log("It is currently going " + car.speed + " miles an hour");
+
+
+
+</script>
+</body>
+</html>
