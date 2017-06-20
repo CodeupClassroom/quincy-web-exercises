@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // run some JS after a specified amount of time.
+    // var delay = 3000;
+
+    // function outputDelay() {
+    //     console.log(delay + " number of milliseconds have passed.");
+    //     console.log("setTimeout takes two arguments. The first is a function definition and the 2nd is the delay in milliseconds");
+    //     console.log("setTimeout runs its function once and only once, like an egg timer");
+    // }
+
+    // var timeoutId = setTimeout(function() {
+    //     outputDelay(delay);
+    // }, delay);
+
+    var i = 0;
+    var intervalId = setInterval(function(){
+        console.log(i);
+        i++;
+        if(i > 10) {
+            clearInterval(intervalId);
+        }
+
+    }, 500);
+
+
+</script>
+</body>
+</html>
