@@ -20,17 +20,21 @@
         if (detonationTimer == 0) {
             alert('EXTERMINATE!');
             document.body.innerHTML = '';
+            defuseTheBOM();
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
 
         detonationTimer--;
+        console.log(detonationTimer);
     }
+
+    var intervalId = setInterval(updateTimer, 1000);
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-
+        clearInterval(intervalId);
     }
 
     // Don't modify anything below this line!
