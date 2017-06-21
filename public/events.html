@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Events!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style type="text/css">
+
+    .blue {
+        height: 300px;
+        width: 300px;
+        background-color: blue;
+        border: 1px solid black;
+
+    }
+    .pink {
+        width: 450px;
+        height: 300px;
+        background-color: pink;
+        border: 1px solid black;
+
+    }
+</style>
+</head>
+<body>
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 pink"></div>
+        <div class="col-md-6 pink"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 blue"></div>
+        <div class="col-md-4 blue"></div>
+        <div class="col-md-4 blue"></div>
+    </div>
+
+
+    <button id="make_pink">Make Pink divs turn red</button>
+    <button id="make_blue">Make blue divs turn green</button>
+    <button id="nuke">Nuke</button>
+
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    var makePink = document.getElementById("make_pink");
+    var makeBlue = document.getElementById("make_blue");
+
+    makePink.addEventListener('click', function() {
+        var pinks = document.getElementsByClassName("pink");
+        pinks[0].style['background-color'] = "red";
+        pinks[1].style['background-color'] = "red";
+    });
+
+    document.getElementById("nuke").addEventListener('click', function() {
+        document.body.innerHTML = "You've been nuked. Double-click anywhere to return to normal...";
+        
+        setTimeout(function() {
+            document.getElementsByTagName("html")[0].addEventListener("dblclick", function() {
+                location.reload();
+            });
+        }, 6);
+    });
+
+    function changeBluesToGreen() {
+        var blues = document.getElementsByClassName("blue");
+        blues[0].style['background-color'] = "green";
+        blues[1].style['background-color'] = "green";
+        blues[2].style['background-color'] = "green";
+    }
+
+    makeBlue.addEventListener('click', changeBluesToGreen);
+
+</script>
+</body>
+</html>
