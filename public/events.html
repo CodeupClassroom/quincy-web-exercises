@@ -50,6 +50,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
 <script type="text/javascript">
     var makePink = document.getElementById("make_pink");
     var makeBlue = document.getElementById("make_blue");
@@ -58,16 +59,6 @@
         var pinks = document.getElementsByClassName("pink");
         pinks[0].style['background-color'] = "red";
         pinks[1].style['background-color'] = "red";
-    });
-
-    document.getElementById("nuke").addEventListener('click', function() {
-        document.body.innerHTML = "You've been nuked. Double-click anywhere to return to normal...";
-        
-        setTimeout(function() {
-            document.getElementsByTagName("html")[0].addEventListener("dblclick", function() {
-                location.reload();
-            });
-        }, 6);
     });
 
     function changeBluesToGreen() {
@@ -79,6 +70,18 @@
 
     makeBlue.addEventListener('click', changeBluesToGreen);
 
+
+
+
+    document.getElementById("nuke").addEventListener('click', function() {
+        document.body.innerHTML = "You've been nuked. Double-click anywhere to return to normal...";
+        
+        setTimeout(function() {
+            document.getElementsByTagName("html")[0].addEventListener("dblclick", function() {
+                location.reload();
+            });
+        }, 6);
+    });
 </script>
 </body>
 </html>

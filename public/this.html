@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        li {
+            font-size: 2em;
+        }
+        li:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>This, that, and the other</h1>
+    <h2>Languages, frameworks, and libraries</h2>
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>MySQL</li>
+        <li>Bootstrap</li>
+        <li>jQuery</li>
+        <li>Laravel</li>
+    </ul>
+    
+<script type="text/javascript">
+    "use strict";
+
+    var listItems = document.getElementsByTagName("li");
+
+    for(var i = 0; i < listItems.length; i++) {
+        listItems[i].addEventListener('click', function() {
+            console.log(this);
+        });
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
