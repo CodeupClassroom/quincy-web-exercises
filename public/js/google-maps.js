@@ -9,8 +9,9 @@
 
       var ul = document.getElementById('results');
 
+      // create a marker and list item for every result
       results.forEach(function(result) {
-        // Create lat and long for our marker position
+        // get the lat and long for our marker based off of the result
         var position = result.geometry.location;
 
         // Add the marker to our existing map
@@ -18,6 +19,13 @@
           position: position,
           map: map
         });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: result.formatted_address
+        });
+        // references the map we created on page load, and the marker created
+        // above
+        infowindow.open(map, marker);
 
         // create a list item and append it to the results ul
         var listItem = '<li>' + result.formatted_address + '</li>';
@@ -62,6 +70,5 @@
   geocoder.geocode(geocoderOptions, doSomeThingWithGeodingResults);
 
   console.log('This code comes after the geocoding request!');
-
 
 })();
