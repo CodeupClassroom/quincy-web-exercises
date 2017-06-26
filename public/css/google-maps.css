@@ -1,4 +1,27 @@
+#map {
+    border: 1px solid black;
+    height: 500px;
+    width: 700px;
+}
+
+
 /*
- * todo: style maps and make them pretty!
+ * Use reasonable default fonts without forcing users to download fonts from
+ * an external site (google fonts)
  *
+ * see https://css-tricks.com/snippets/css/font-stacks/
  */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    margin 1em 0;
+}
+
+body {
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
