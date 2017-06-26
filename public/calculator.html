@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<input type="text" id="leftDisplay">
+<input type="text" id="operatorDisplay">
+<input type="text" id="rightDisplay">
+
+<input class="numbers" type="button" id="btnone" value="1">
+<input class="numbers" type="button" id="btntwo" value="2">
+<input class="numbers" type="button" id="btnthree" value="3">
+<input class="numbers" type="button" id="btnfour" value="4">
+<input class="numbers" type="button" id="btnfive" value="5">
+
+<input class="operators" type="button" id="btnone" value="*">
+<input class="operators" type="button" id="btnone" value="-">
+<input class="operators" type="button" id="btnone" value="+">   
+
+<input type="button" value="=" id="equal">
+
+<script type="text/javascript">
+    var leftDisplay = document.getElementById('leftDisplay');
+    var operatorDisplay = document.getElementById("operatorDisplay");
+    var rightDisplay = document.getElementById('rightDisplay');
+
+    var equal = document.getElementById("equal");
+
+    equal.addEventListener('click', function() {
+        console.log("you clicked the equals button");
+        console.log("the value in leftDisplay is " + leftDisplay.value);
+        console.log("the value in rightDisplay is " + rightDisplay.value);
+        console.log("the value in operatorDisplay is " + operatorDisplay.value);
+        console.log("the type of operatorDisplay.value is " + (typeof operatorDisplay.value));
+
+        var result; 
+
+        if(operatorDisplay.value == '+') {
+            result = sum();
+            addResultToDisplay(result);
+        }
+    });
+
+    function addResultToDisplay(result) {
+        leftDisplay.value = result;
+        operatorDisplay.value = "";
+        rightDisplay.value = "";
+    }
+
+    function sum() {
+        return parseFloat(leftDisplay.value) + parseFloat(rightDisplay.value);
+    }
+
+    function subtract() {
+        return leftDisplay.value - rightDisplay.value;
+    }
+
+    function multiply() {
+        return leftDisplay.value * rightDisplay.value;
+    }
+
+    function divide() {
+        return leftDisplay.value / rightDisplay.value;
+    }
+
+    // clicking any number fires this function.
+    function addNumberToDisplay() {
+        if(rightDisplay.value == "" && operatorDisplay.value == ""){
+            leftDisplay.value += this.value;
+        } else {
+            rightDisplay.value += this.value;
+        }
+    }
+
+    function addOperatorToDisplay() {
+        operatorDisplay.value = this.value;
+    }
+
+    // get nodeList of all number buttons
+    var numberButtons = document.getElementsByClassName("numbers");
+
+    // use for loop to iterate through the list and add the same event listener to each one.
+    for(var i = 0; i < numberButtons.length; i++) {
+        numberButtons[i].addEventListener('click', addNumberToDisplay);
+    }
+
+    // get nodelist of all operator buttons
+    var operatorButtons = document.getElementsByClassName("operators");
+
+    // use for loop to iterate through the list and add the same event listener to each one.
+    for(var i = 0; i < operatorButtons.length; i++) {
+        operatorButtons[i].addEventListener('click', addOperatorToDisplay);
+    }
+
+
+
+</script>
+</body>
+</html>

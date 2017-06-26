@@ -6,9 +6,9 @@
         li {
             font-size: 2em;
         }
-        li:hover {
+  /*      li:hover {
             background-color: yellow;
-        }
+        }*/
     </style>
 </head>
 <body>
@@ -26,21 +26,13 @@
         <li>Laravel</li>
     </ul>
     
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
     "use strict";
 
-    var listItems = document.getElementsByTagName("li");
-
-    for(var i = 0; i < listItems.length; i++) {
-        listItems[i].addEventListener('click', function() {
-            console.log(this);
-        });
-    }
-
-
-
-
-
+    $("li").click(function() {
+        console.log($(this).text());
+    });
 
 </script>
 </body>
