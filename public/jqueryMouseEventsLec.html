@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mouse Events Lecture</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        .box {
+            height: 75px;
+            width: 75px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main id="container">
+        <h1>Mouse Events Lecture</h1>
+        <h3 class="blueText">Sub Header</h3>
+        <p class="blueText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="blueText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <hr>
+        
+        <ul>
+            <li>Item 1</li>
+            <li id="specialItem">Item 2</li>
+            <li>Item 3</li>
+        </ul>
+
+        <div class="box" id="box"></div>
+
+        <br>
+
+        <input type="text" name="" id="inputField">
+
+    </main>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+
+        "use strict";
+
+    // Event Handler / Listener Function Review from JavaScript
+
+        var mainContainer = document.getElementById('container');
+
+        function cowboyGreeting() {
+            alert("Howdy!");
+        }
+
+        mainContainer.addEventListener("click", function() {
+            alert("Howdy!");
+        })
+
+
+    // Event Object
+
+        mainContainer.addEventListener("click", function(e) {
+            console.log(e.screenX + " " + e.screenY);
+        });
+
+
+    
+    // Click
+
+        // jQuery way of binding a click event
+            $("#container").click(function() {
+                alert("Howdy");
+            });
+
+
+        // using a named function for the handler rather than an anonymous function
+            function cowboyGreeting() {
+                alert("Howdy!");
+            }
+
+            $("#container").click(cowboyGreeting);
+
+
+        // storing a reference to an array of jQuery objects representing each matching element 
+
+            var container = $('#container');
+
+            function cowboyGreeting() {
+                alert("Howdy!");
+            }
+
+            container.click(cowboyGreeting);
+
+
+        // access event object in handler
+
+            $('#container').click(function(e){
+                console.log(e);
+            });
+
+
+    // Double click and using "this"
+
+        $("li").dblclick(function() {
+            console.log(this);
+            $(this).css("background-color", "lime");
+        });
+
+
+    // Hover
+
+        //SINGLE FUNCTION
+
+            $("#box").hover(function() {
+                $(this).css("border-radius", "75px");
+            });
+
+        //TWO FUNCTIONS
+
+            $("#box").hover(
+                function() {
+                    $(this).css("border-radius", "75px");
+                },
+                function() {
+                    $(this).css("border-radius", "0");
+                }
+            );
+
+    }); 
+
+</script>
+
+</body>
+
+</html>
