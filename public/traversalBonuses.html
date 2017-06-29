@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traversal Lecture</title>
+</head>
+<body>
+
+    <main>
+
+        <article>
+            <h3>Top Bonds</h3> 
+            <section>Beginning</section>
+            <hr>
+            <section>Middle</section>
+            <hr>
+            <section>End</section>
+            <hr>
+            <section>
+                
+                <ol>
+                    <li>Craig</li>
+                    <li>Brosnan</li>
+                    <li>Connery</li>
+                    <li>Dalton</li>
+                    <li>Moore</li>
+                </ol>
+
+            </section>
+
+        </article>
+
+        <article>
+            <h3>Top Books</h3> 
+            <section>Beginning</section>
+            <hr>
+            <section>Middle</section>
+            <hr>
+            <section>End</section>
+            <hr>
+            <section>
+                
+                <ol>
+                    <li>LOTR</li>
+                    <li>1984</li>
+                    <li>20,000 Legues Under the Sea</li>
+                    <li>R is for Rocket</li>
+                    <li>The War of the Worlds</li>
+                </ol>
+
+            </section>
+            
+        </article>
+
+        <article>
+            <h3>Top Pets</h3> 
+            <section>Beginning</section>
+            <hr>
+            <section>Middle</section>
+            <hr>
+            <section>End</section>
+            <hr>
+            <section>
+                
+                <ol>
+                    <li>Dogs</li>
+                    <li>Cats</li>
+                    <li>Bats</li>
+                    <li>Rats</li>
+                    <li>Gnats</li>
+                </ol>
+
+            </section>
+            
+        </article>
+    
+    </main>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script>
+
+        "use strict";
+        
+        // +++++++++++++++++++++++++++++++++++++++++++++++++++++QUESTIONS+++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                            // (For solutions to all questions, see below)
+
+
+        // ========================= without traversal methods =========================
+
+        // Highlight all sections
+
+        // Highlight all articles
+        
+           
+
+
+        // ========================= .first() =========================
+
+        // Highlight the first article
+
+
+
+
+        // ========================= .last() =========================
+
+        // Highlight the last article
+
+    
+
+
+        // ========================= .next() =========================
+        
+        // Highlight the second article
+
+        // Highlight the third li of the entire page
+
+
+
+
+        // ========================= .children() =========================
+
+        // Highlight the children of all the ordered lists
+
+        // Highlight all the sections of the first article
+
+        // Highlight the ordered list of the first article
+
+
+
+
+        // ========================= .parent() =========================
+
+        // Highlight the entire ordered list when a list item is clicked
+
+
+
+
+        // ========================= .each() =========================
+
+        // Highlight the first nested element inside all article elements
+        
+
+        // Highlight the second list item of all ordered lists
+
+
+        // Highlight the third list item of all ordered lists
+
+
+
+
+        // ========================= more complex combinations =========================
+
+        // Highlight the first li of the second ordered list
+
+    
+        // alert each of the top five items when double clicking on the header for a section
+
+
+        // Give a azure background color to every other list item (first item should be azure)
+
+
+
+
+
+
+
+
+
+
+
+
+        // +++++++++++++++++++++++++++++++++++++++++++++++++POSSIBLE SOLUTIONS+++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+        // ========================= without traversal methods =========================
+
+        // Highlight all sections
+
+            // $('section').css('background-color', 'yellow');
+           
+        // Highlight all articles
+        
+            // $('article').css('background-color', 'yellow');   
+
+        
+
+        // ========================= .first() =========================
+
+        // Highlight the first article
+
+            // $('article').first().css('background-color', 'yellow');               
+
+
+
+        // ========================= .last() =========================
+
+        // Highlight the last article
+
+            // $('article').last().css('background-color', 'yellow');
+
+
+
+        // ========================= .next() =========================
+        
+        // Highlight the second article
+
+            // $('article').first().next().css('background-color', 'yellow');  
+
+        // Highlight the third li of the entire page
+
+            // $('li').first().next().next().css('background-color', 'yellow');                          
+
+
+
+        // ========================= .children() =========================
+
+        // Highlight the children of all the ordered lists
+
+            // $('ol').children().css('background-color', 'yellow'); 
+
+        // Highlight all the sections of the first article
+
+            // $('article').first().children().css('background-color', 'yellow');   
+
+
+        // Highlight the ordered list of the first article
+
+            // $('article').first().children().last().children().css('background-color', 'yellow');                         
+
+
+
+        // ========================= .parent() =========================
+
+        // Highlight the entire ordered list when a list item is clicked
+
+            // $('li').click(function() {
+            //     $(this).parent().css('background-color', 'yellow');
+            // });
+
+ 
+
+        // ========================= .each() =========================
+
+        // Highlight the first nested element inside all article elements
+        
+            // $('article').each(function(index, element) {
+            //     $(this).children().first().css('background-color', 'yellow');   
+            // });
+
+        // Highlight the second list item of all ordered lists
+
+            // $('ol').each(function(index, element) {
+            //     $(this).children().first().next().css('background-color', 'yellow');   
+            // });
+
+        // Highlight the third list item of all ordered lists
+
+            // $('ol').each(function(index, element) {
+            //     $(this).children().first().next().next().css('background-color', 'yellow');   
+            // });
+
+
+        // ========================= more complex combinations =========================
+
+        // Highlight the first li of the second ordered list
+
+            // $('article').first().next().children().last().children().children().first().css('background-color', 'yellow'); 
+
+        // alert each of the top five items when double clicking on the header for a section
+
+            // $('h3').dblclick(function(){
+            //     console.log($(this).parent().children().last().children().children());
+            //     $(this).parent().children().last().children().children().each(function(index, element){
+            //         alert($(element).text());
+            //     });
+            // });
+
+        // Give a azure background color to every other list item (first item should be azure)
+
+            // $('ol').each(function(indexI, element) {
+            //     $(element).children().each(function(indexJ) {
+            //         // console.log(indexJ);
+            //         if (indexJ % 2 == 0) {
+            //             console.log(indexJ);
+            //             $(this).css('background-color', 'azure');
+            //         }
+            //     }); 
+            // });
+
+
+        
+    </script>
+
+
+</body>
+</html>

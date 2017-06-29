@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attributes</title>
+
+    <style>
+
+        .my-element {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+        .newSize {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .awesomeFont {
+            font-family: "Comic Sans MS";
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="codeup">Hello Codeup</h1>
+    <div class="my-element"></div>
+    <button id="small">Make Small</button>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            "use strict";
+
+            // Getter (returns a value)
+
+                var codeupHtml = $('#codeup').html();
+                var divDisplay = $('div').css('display');
+
+                console.log(divDisplay);
+
+
+            // Setter (returns a jQuery object)
+
+                $('#my-element').css('width', "70px").css("height", "100px");
+
+                $('#my-element').css({
+                    'width': "70px",
+                    "height": "100px"
+                });
+
+
+            // addClass()
+
+                $('div').click(function(){
+                    $(this).addClass('newSize');
+                });
+
+
+            // removeClass()
+
+                $('#small').click(function() {
+                    $('div').removeClass('newSize');     
+                });
+
+
+            // toggleClass()
+
+                $("h1").dblclick(function() {
+                    $(this).toggleClass("awesomeFont");
+                    
+                    // hasClass();
+                    var hasAwesomeFont = $('h1').hasClass('awesomeFont');
+
+                    if (hasAwesomeFont) {
+                        console.log("Has awesome font!");
+                    } else {
+                        console.log("NO awesome font!");
+                    }
+
+                });
+
+
+        });
+
+
+
+
+    </script>
+
+</body>
+</html>

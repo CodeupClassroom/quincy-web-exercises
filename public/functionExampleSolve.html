@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Solve</title>
+</head>
+<body>
+
+    <script>
+       
+       "use strict";
+       /*
+
+
+        ================================= STANDARD TEMPLATE FOR FUNCTION CHALLENGES
+
+        var someTestInput = someValue;
+
+        function someFunctionName(someInput) {
+
+            var output = {}; // the empty data type depends of the data type the function will return 
+
+            ...do things that make the output value correct for the function to return...
+            
+            return output;
+        }
+
+        // Test the function with a console.log of the return value of calling the function with a test input
+
+        console.log(someFunctionName(someTestInput));
+
+
+
+
+
+       */
+
+
+        
+        // pass in [1, 2, 3] will return [2, 3, 4]
+
+
+        // Create a function called addOne that takes an array of numbers and returns an array of the same numbers incremented by one
+
+
+        var numbers = [1, 2, 3];
+
+        function addOne(numberArray) {
+
+            var outputArray = []; // the empty data type depends of the data type the function will return 
+
+            // for (var i = 0; i < numberArray.length; i++) {
+
+            //     outputArray.push(numberArray[i] + 1);
+
+            // }
+
+            numberArray.forEach(function(element, index, array){
+
+                outputArray.push(element + 1);
+
+            });
+
+            return outputArray;
+        }
+
+        // Test the function with a console.log of the return value of calling the function with a test input
+
+        console.log(addOne(numbers));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
