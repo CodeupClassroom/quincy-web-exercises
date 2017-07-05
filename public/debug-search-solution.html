@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous"
+    >
+</head>
+<body>
+<article class="container">
+    <h1>Good reads</h1>
+    <div class="text-right">
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" id="friend" placeholder="Jane">
+            </div>
+            <button type="button" id="search" class="btn btn-default">Search</button>
+        </form>
+    </div>
+    <br>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>
+                <a id="sort" class="header" href="#">Friend</a>
+            </th>
+            <td class="header">Books</td>
+        </tr>
+        </thead>
+        <tbody id="friends">
+        </tbody>
+    </table>
+</article>
+<script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous">
+</script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous">
+</script>
+<script>
+
+    $(document).ready(function() { // +++++++++++ Add document.ready
+
+        "use strict" // ++++++++++ Add use strict
+
+        var tbody = $('#friends');
+        var sortName = $('#sort');
+        var search = $('#search');
+        var friends = [
+            {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
+            {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
+            {name: 'Jessica', books: ['Understanding the 4 rules of simple design', 'Principles of package design']},
+            {name: 'Clark', books: ['Selling test driven projects']}
+        ];
+        var buildTableRows = function (friends) {
+            var table = '';
+            friends.forEach(function (friend)  {
+                table += '<tr><td>' + friend.name + '</td><td>' + friend.books.join(', ') + '</td></tr>';
+            });
+
+            return table;
+        };
+
+        // +++++++++++++++++++ Create function called rebuildRows
+        var rebuildRows = function() {
+            var search = $('#friend').val();
+            var filteredResults = filterFriendsByName(friends, search);
+            var resultsHTML = buildTableRows(filteredResults);
+            tbody.html(resultsHTML);
+        }
+
+        var sortFriendsByName = function(friends) {
+            friends.sort(function (friendA, friendB) {
+                if (friendA.name < friendB.name) {
+                    return -1;
+                }
+                if (friendA.name > friendB.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        };
+        var filterFriendsByName = function (friends, name) {
+            return friends.filter(function (friend) {
+                return friend.name.indexOf(name) !== -1;
+            });
+        };
+        var sortTable = function (event) {
+            event.preventDefault();
+            sortFriendsByName(friends);
+            tbody.html(buildTableRows(friends));
+        };
+
+        tbody.html(buildTableRows(friends));
+        search.on('click', rebuildRows); // +++++++++++++++ change search button to call new method
+        sortName.on('click', sortTable);
+    });
+</script>
+</body>
+</html>

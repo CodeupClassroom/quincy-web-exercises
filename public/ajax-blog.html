@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style type="text/css">
+
+        body {
+            background-color: powderblue;
+            font-family: helvetica, sans-serif;
+        }
+
+        h1 {
+           text-align: center; 
+           margin-bottom: 40px;
+           margin-top: 40px;
+           font-size: 3em;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        button {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        div {
+            background-color: aliceblue;
+            text-align: center;
+            font-size: 1em;
+            padding: 20px;
+        }
+
+        p {
+            text-align: left;
+            padding: 10px;
+            padding-bottom: 5px;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+
+        #date {
+            position: absolute;
+            float: right;
+        }
+
+        #categories {
+            text-align: right;
+        }
+
+
+
+    </style>
+
+</head>
+<body class="body container">
+
+    <h1>My AJAX Blog</h1>
+
+    <div id="posts"></div>
+
+    <button  type="button" class="btn btn-success" id="btn-load">Reload</button>
+       
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function() {
+        "use strict";
+
+        // Global variables
+        var blogUrl = 'data/blog.json';
+        var $posts = $('#posts');
+
+        // Function to convert output to title case
+        function titleCase(str) {
+            str = str.toLowerCase().split(' ');
+            for (var i = 0; i < str.length; i++) {
+                str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+            }
+            return str.join(' ');
+        }
+
+        // Helper function to attach to reload button
+        function loadBlog() {
+            $.get(blogUrl).done(function (data) {
+                data.reverse();
+                var content = '';
+                data.forEach(function (element, index, array) {
+                    content += "<h6 id='date'>" + element.date + "</h6>";
+                    content += "<h3 id='title'>" + element.title + "</h3>";
+                    content += "<p id='content'>" + element.content + "</p>";
+                    content += "<h5 id='categories'>" + "<span>Categories</span>: " + titleCase(element.categories.join(", ")) + "</h5>";
+                    content += "<hr>";
+                });
+                $posts.html(content);
+            }).fail(function () {
+                console.log("Failed request.");
+            });
+        }
+
+        // Reload button
+        $("#btn-load").click(function () {
+            $posts.html("");
+            loadBlog();
+        });
+
+        // On load
+        loadBlog();
+
+    });
+
+    // })();
+    </script>
+
+</body>
+</html>
