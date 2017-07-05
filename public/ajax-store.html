@@ -19,6 +19,8 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
+<button id="deathstar">Click here to add the deathstar to your inventory of tools</button>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
@@ -27,21 +29,45 @@
 
     // read from /data/inventory.json 
         // make an AJAX Get request to /data/inventory.json
+        // var url = "/data/inventory.json";
 
-        // if you're going to make an ajax request
-        // setup both your .done and .fail methods
+    function addAJAXDeathStarToPage() {
+        var url = "http://swapi.co/api/starships/9/";
 
-        // 1st draft of .fail is console.log("fail")
-        // 1st draft of .done is console.log("done method fired")
+        var request = $.get(url);
 
-        // 2nd draft of .fail method is to console.log the results
-        // 2nd draft of .done method is to console.log the results
+        request.done(function(data, status, request) {
+            console.log(data);
+            console.log(status);
+
+            var htmlString = "<tr>";
+            htmlString += "<td>" + data.name + "</td>";
+            
+            htmlString += "<td>1</td>";
+            htmlString += "<td>" + data.cost_in_credits + "</td>";
+            htmlString += "<td>" + data.starship_class + "</td>";
+            htmlString += "</tr>";       
+
+            $("#insertProducts").append(htmlString);
+
+
+        });
+
+        request.fail(function(request, status, error) {
+            console.log(status);
+            console.log(error);
+        });  
+    }
+    
+    $("#deathstar").click(function() {
+        addAJAXDeathStarToPage();
+    });
 
     // put the contents on the page w/ html
         // contents of inventory.json will be JSON format
         // name those contents a variable called contents
 
-        // Determine the "shape" of those contentsby expanding them inside your console.
+        // Determine the "shape" of those contents by expanding them inside your console.
             // By "shape", answer the following questions:
                 // is the result from contents a string
                 // is the "shape" an object? {}
@@ -70,9 +96,35 @@
     // console.log("fourth element is " + array[index]);
     // if you get undefined then we've reached the end of the array
 
-
     // make a loop around that array
-    
+
+    var url = "/data/inventory.json";
+
+    // make AJAX get request
+    var request = $.get(url);
+
+    // define the done
+    request.done(function(data, status, request) {
+        
+        var htmlString = "";
+
+        data.forEach(function(tool) {
+            htmlString += "<tr>";
+            htmlString += "<td>" + tool.title + "</td>";
+            htmlString += "<td>" + tool.quantity + "</td>";
+            htmlString += "<td>" + "$" + tool.price + ".99" + "</td>";
+            htmlString += "<td>" + tool.categories + "</td>";
+            htmlString += "</tr>";
+        });      
+
+        $("#insertProducts").html(htmlString);
+    });
+    // define the fail
+    request.fail(function(request, status, error) {
+        console.log(status);
+        console.log(error);
+    });  
+
 })();
 </script>
 
