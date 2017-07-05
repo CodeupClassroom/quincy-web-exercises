@@ -19,111 +19,73 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-<button id="deathstar">Click here to add the deathstar to your inventory of tools</button>
+<button id="deathstar" data-url="http://swapi.co/api/starships/9/">Click here to add the deathstar to your inventory of tools</button>
 
+<button id="star_destroyer" data-url="http://swapi.co/api/starships/3/">Star Destroyer</button>
+
+<button id="tools" data-url="/data/inventory.json">Click here to add tools!</button>
+
+<button id="millenium_falcon" data-url="http://swapi.co/api/starships/10/">Millenium falcon</button>
+
+<button id="xwing" data-url="http://swapi.co/api/starships/12/">X-Wing</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
 (function() {
     "use strict";
 
-    // read from /data/inventory.json 
-        // make an AJAX Get request to /data/inventory.json
-        // var url = "/data/inventory.json";
-
-    function addAJAXDeathStarToPage() {
-        var url = "http://swapi.co/api/starships/9/";
-
+    function makeRequest(url) {
         var request = $.get(url);
 
-        request.done(function(data, status, request) {
+        request.done(function(data, status) {
             console.log(data);
-            console.log(status);
 
-            var htmlString = "<tr>";
-            htmlString += "<td>" + data.name + "</td>";
-            
-            htmlString += "<td>1</td>";
-            htmlString += "<td>" + data.cost_in_credits + "</td>";
-            htmlString += "<td>" + data.starship_class + "</td>";
-            htmlString += "</tr>";       
-
-            $("#insertProducts").append(htmlString);
-
-
+            // if the api request is to Star Wars API's starships resource, add starship to page
+            if(url.substr(0,30) == "http://swapi.co/api/starships/") {
+                addStarshipToPage(data);
+            } else {
+                addToolstoPage(data);
+            }
         });
 
         request.fail(function(request, status, error) {
             console.log(status);
             console.log(error);
-        });  
+        });
     }
-    
-    $("#deathstar").click(function() {
-        addAJAXDeathStarToPage();
-    });
 
-    // put the contents on the page w/ html
-        // contents of inventory.json will be JSON format
-        // name those contents a variable called contents
-
-        // Determine the "shape" of those contents by expanding them inside your console.
-            // By "shape", answer the following questions:
-                // is the result from contents a string
-                // is the "shape" an object? {}
-                // is the shape an array []
-
-            // If contents is an array, we're probably going to iterate across that array
-            // if contents are an object, we'll need to explore that object and the shape of its properties  
-            
-            // Identify what data needs to go where into what HTML structure... type out the HTML manually w/ hard coded data if you have to
-
-    // if the shape of our data is an array, ignore any loops and make a solution for only the first element on that array
-
-    // Wishful thinking: ignore as much of the problem as you can, focus on the smallest steps where less goes wrong
-
-    // once we have a solution working for the first element of an array, we can manually iterate to make sure our thinking is clear
-
-    // example of manually iterating:
-    // var array = ['bob', 'jane', 'tarzan'];
-    // var index = 0;
-    // console.log("first element is " + array[index]);
-    // index++;
-    // console.log("second element is " + array[index]);
-    // index++;
-    // console.log("third element is " + array[index]);
-    // index++;
-    // console.log("fourth element is " + array[index]);
-    // if you get undefined then we've reached the end of the array
-
-    // make a loop around that array
-
-    var url = "/data/inventory.json";
-
-    // make AJAX get request
-    var request = $.get(url);
-
-    // define the done
-    request.done(function(data, status, request) {
+    function addStarshipToPage(data) {   
+        var tool = {};
+        tool.price = data.cost_in_credits;
+        tool.quantity = 1;
+        tool.categories = data.starship_class;
+        tool.title = data.name;
         
-        var htmlString = "";
+        addTableRow(tool);
+    }
 
+    function addToolstoPage(data) {
         data.forEach(function(tool) {
-            htmlString += "<tr>";
-            htmlString += "<td>" + tool.title + "</td>";
-            htmlString += "<td>" + tool.quantity + "</td>";
-            htmlString += "<td>" + "$" + tool.price + ".99" + "</td>";
-            htmlString += "<td>" + tool.categories + "</td>";
-            htmlString += "</tr>";
+            addTableRow(tool);   
         });      
+    }
 
-        $("#insertProducts").html(htmlString);
+    function addTableRow(tool) {
+        var htmlString = "<tr>";
+        htmlString += "<td>" + tool.title + "</td>";
+        htmlString += "<td>" + tool.quantity + "</td>";
+        htmlString += "<td>" + "$" + tool.price + ".99" + "</td>";
+        htmlString += "<td>" + tool.categories + "</td>";
+        htmlString += "</tr>";
+
+        $("#insertProducts").append(htmlString);
+    }
+
+    $('button').click(function(event) {
+        var buttonClicked = event.target;
+        var url = $(buttonClicked).data("url");
+        makeRequest(url);
     });
-    // define the fail
-    request.fail(function(request, status, error) {
-        console.log(status);
-        console.log(error);
-    });  
 
 })();
 </script>
