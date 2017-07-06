@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Old Yeller",
+		"color": "gold",
+		"age": 12
+	},
+	{
+		"name": "Big Red",
+		"color": "brown",
+		"age": 10
+	},
+	{
+		"name": "Lassie",
+		"color": "brown, white, black",
+		"age": 5
+	},
+	{
+		"name": "Beethoven",
+		"color": "brown, white",
+		"age": 9
+	}
+]
