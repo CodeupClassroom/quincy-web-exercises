@@ -35,15 +35,72 @@
     $(document).ready(function() {
     	"use strict";
 
-        // create a function called isOldDog() that takes in an array of objects and returns an array of booleans. A value of true will be added to the output array if the age property value of a given object is greater than 10, otherwise a value of false will be added to the output array.
-   
+        // create a function called isOldDog() 
+        // that takes in an array of objects 
+        // and returns an array of booleans. 
+        // A value of true will be added to the output array 
+        // if the age property value of a given object is greater than 10, 
+        // otherwise a value of false will be added to the output array.
+        
 
+        // test array
+
+        // var jsonFileContents = [
+        //     {
+        //         "name": "Old Yeller",
+        //         "color": "gold",
+        //         "age": 12
+        //     },
+        //     {
+        //         "name": "Big Red",
+        //         "color": "brown",
+        //         "age": 10
+        //     },
+        //     {
+        //         "name": "Lassie",
+        //         "color": "brown, white, black",
+        //         "age": 5
+        //     },
+        //     {
+        //         "name": "Beethoven",
+        //         "color": "brown, white",
+        //         "age": 9
+        //     }
+        // ];
+
+
+        function isOldDog(arrayOfObjects) {
+            var outputArray = [];
+
+            arrayOfObjects.forEach(function(dog){
+                dog.age
+                if (dog.age > 10) {
+                    outputArray.push(true);
+                } else {
+                    outputArray.push(false);
+                }
+            });            
+
+            return outputArray;
+
+        }
+
+        // console.log(isOldDog(jsonFileContents));
 
         // create a function makeRequest() that makes a GET request to the dogs.json file. 
         // In the .done method, console.log the returned value of isOldDog(data).
-    
+        
+        function makeRequest() {
+            $.get('data/dogs.json').done(function(data) {
+                console.log(isOldDog(data));
+            }).fail(function(jqXhr, status, error) {
+                console.log(error);
+            });
+        }
+
         // Call the makeRequest() function to test
-    	
+    	makeRequest();
+
     });
 
     </script>
