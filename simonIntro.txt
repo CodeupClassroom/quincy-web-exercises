@@ -1,0 +1,104 @@
+
+================================= SIMPLE SIMON
+
+
+-- Simon Introduction --
+
+    As a pair, develop a basic version, then a unique take, on the Simple Simon game (based on 80s Simon board game)
+
+    Examples
+
+    Up next...
+
+        1) Set up enviroment
+        2) Plan out all rules in great detail for basic version and pseudo code project
+        3) Pair program minimum viable product (MVP)
+        4) Pair program and style unique take on the Simple Simon game
+    
+
+-- Expectations --
+
+    - Work together as a team (not as two individuals)
+        Together, plan the project
+        One person write code (driver)
+        One person should observe, strategize, give feedback/suggestions (navigator)
+        
+    - Alternate frequently between driving/navigating about every 30 minutes
+
+    - Don't use eval()
+
+    - Commit frequently (entire project should be at least 30 commits)
+
+
+-- Suggestions -- 
+
+    - Use jQuery syntax where possible
+
+    - Work first to complete fully functional version before extra styling and features
+
+
+-- Project Set Up --
+
+    Pair up
+
+    BOTH team members do the following...
+    
+        1) Follow curriculum setup steps 1 - 3 (NOT INCLUDING STEP 4!)
+
+    First team member ONLY...
+        1) Create organization on GitHub
+        2) Add teammate to organization
+        3) Complete step 4 from curriculum setup steps
+        4) Add and commit index.html file 
+        5) Create remote repo on GitHub based on your local repo
+        6) Push up all commits to the newly created remote repository on GitHub
+
+    Second team member ONLY...
+        1) Go to your organizations page and simple-simon repo
+        2) Click the link to clone the repo address
+        3) cd into ~/vagrant-lamp/sites/simplesimon.dev folder
+        4) Type "rm -rf public"
+        5) Hit enter
+        6) Type "git clone [paste address here] ."  (no actual square brackets should be around the address and don't forget the dot)
+        7) Type "subl .gitignore" and hit enter then save and close the empty file
+        8) Add and commit .gitignore file
+        9) cd into the public folder and use the "mkdir" to create folders for css, js, img, and sound
+        10) Add and commit these folders
+        11) Create main.css and main.js files
+        12) Add and commit these files
+        13) Once all additional files and folders are added and committed, type "git push origin master" and hit enter
+
+    First team member ONLY...
+        1) Type "git pull origin master" and hit enter
+        2) Make a small change to the index.html file like adding the basic tags of an HTML script
+        3) Add and commit the change to index.html
+        4) Type git push origin master
+
+    Second team member ONLY...
+        1) Type "git pull origin master" and hit enter
+        2) You are now free to begin planning the project
+
+
+
+-- Project Planning --
+
+    As a pair, write out the rules for Simple Simon in great detail.
+
+    Pseudo code as detailed as possible the logic of your project (remember to focus on the basic version first).
+
+    Aim to spend at least an hour planning the project.
+
+    Consider extra features and styling (a possible theme) for the unique version of the project.
+
+    Once the project is adequetly planned, begin pair programming, using the curriculum steps as a guide.
+
+
+
+
+
+
+
+
+
+
+
